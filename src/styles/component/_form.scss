@@ -1,0 +1,38 @@
+@use "../global" as g;
+
+/*================
+ form
+ ================*/
+.c-form {
+    @include g.mq(md, min) {}
+}
+
+.c-form__item{
+    margin-top: 3rem;
+    &:first-of-type{
+        margin-top: 0;
+    }
+}
+
+.c-form__title{
+    font-weight: 500;
+    display: block;
+}
+
+.c-form__body{
+    margin-top: .8rem;
+}
+
+.c-input{
+    input{
+        display: inline-block;
+        padding: 1rem;
+        border-radius: 3px;
+        border: solid 1px g.$color_border;
+        font-size: 1.6rem;
+        width: 100%;
+        box-sizing: border-box;
+        background-color: g.$color_input;
+        font-weight: 300;
+    }
+}

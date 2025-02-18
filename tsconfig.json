@@ -1,0 +1,56 @@
+{
+  "compilerOptions": {
+    /* 基本設定 */
+    //"target": "ESNext",                         // 最新のJavaScript構文をターゲットに
+    //"lib": ["DOM", "DOM.Iterable", "ESNext"],   // ブラウザとESNextのAPIを使用
+    //"module": "ESNext",                         // ES Modulesを使用
+    //"moduleResolution": "Node",                 // Node.js形式のモジュール解決
+    //"jsx": "react-jsx",                         // React 17以降の新しいJSX変換
+
+    /* 厳格な型チェック */
+    //"strict": true,                             // 全ての厳格モードを有効化
+    //"noImplicitAny": true,                      // 暗黙の any 型を禁止
+    //"strictNullChecks": true,                   // null と undefined を明確に区別
+    //"strictFunctionTypes": true,                // 関数型の厳格な互換性を有効化
+    //"strictBindCallApply": true,                // bind, call, apply の型チェックを強化
+    //"noImplicitThis": true,                     // 暗黙的な this を禁止
+    //"alwaysStrict": true,                       // strict モードでコンパイル
+
+    /* 型安全性を向上する設定 */
+    //"noUnusedLocals": true,                     // 未使用のローカル変数をエラーに
+    //"noUnusedParameters": true,                 // 未使用の関数パラメータをエラーに
+    //"noImplicitReturns": true,                  // 全てのコードパスが値を返す必要
+    //"noFallthroughCasesInSwitch": true,         // switch 文でのフォールスルーを防止
+
+    /* コード補完・エクスペリエンス向上 */
+    //"baseUrl": "./",                            // 相対パスを簡略化
+    //"paths": {                                  // エイリアスの設定
+    //  "@components/*": ["src/components/*"],
+    //  "@pages/*": ["src/pages/*"],
+    //  "@utils/*": ["src/utils/*"],
+    //  "@styles/*": ["src/styles/*"]
+    //},
+    //"allowSyntheticDefaultImports": true,       // ES6スタイルのデフォルトインポートを許可
+    //"esModuleInterop": true,                    // CommonJSと互換性を確保
+
+    /* 出力設定 */
+    //"outDir": "dist",                           // ビルドファイルの出力ディレクトリ
+    //"rootDir": "src",                           // ソースファイルのルートディレクトリ
+    //"sourceMap": true,                          // ソースマップを生成
+    //"declaration": true,                        // 型定義ファイル（.d.ts）を生成
+    //"declarationMap": true,                     // 型定義ファイルにソースマップを追加
+
+    /* その他便利な設定 */
+    //"skipLibCheck": true,                       // 外部ライブラリの型チェックをスキップ
+    //"forceConsistentCasingInFileNames": true    // ファイル名の大文字小文字の一貫性を強制
+  },
+  //"include": ["src"],                           // コンパイル対象のファイル
+  //"exclude": ["node_modules", "dist"],           // コンパイル対象外のディレクトリ
+
+  /* 初期設定 */
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}

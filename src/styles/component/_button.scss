@@ -1,0 +1,16 @@
+@use "../global" as g;
+/*================
+ ボタン
+ ================*/
+
+.c-btn {
+  //border: solid 1px g.$color_thema1;
+
+  background-color: g.$color_thema2;
+  color: #fff;
+  border-radius: 5rem;
+  border: none;
+  font-size: 1.4rem;
+  padding: 1.2rem 3rem;
+  display: inline-block;
+}

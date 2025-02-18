@@ -1,0 +1,142 @@
+@charset "utf-8";
+@use "sass:map";
+
+//-----------------------------
+// @extend / @mixin専用ファイル
+//-----------------------------
+// テキスト非表示
+//-----------------------------
+
+%off {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/*clear fix*/
+@mixin clearfix {
+  &:after {
+    display: block;
+    visibility: hidden;
+    clear: both;
+    height: 0;
+    content: "";
+  }
+}
+
+%cf {
+  &:after {
+    display: block;
+    visibility: hidden;
+    clear: both;
+    height: 0;
+    content: "";
+  }
+}
+
+@mixin cf {
+  &:after {
+    display: block;
+    visibility: hidden;
+    clear: both;
+    height: 0;
+    content: "";
+  }
+}
+
+// ====================================================================
+// 関数名: media
+// --------------------------------------------------------------------
+// usage
+// @include mq{...} => @media screen and (min-width: 768px){...} デフォルトはmd
+// @include mq(lg){...} => @media screen and (min-width: 1024px){...}
+// @include mq(sm,max){...} => @media screen and (max-width: 600px){...}
+// @include mq(sm,max,true){...} => @media screen and (min-width: 767px){...} 第３引数trueで1pxマイナスになる
+// @include mq{...@include mq(lg,max,true){...}} => @media screen and (min-width: 768px) and (max-width: 1023px)
+// ====================================================================
+/*
+$mq-breakpoints: (
+    xs3: 320px,
+    xs2: 375px,
+    xs: 414px,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xl2: 1280px,
+    xl3: 1366px,
+);
+*/
+$mq-breakpoints: (
+  xs3: 320px,
+  xs2: 375px,
+  xs: 414px,
+  sm: 576px,
+  md: 768px,
+  lg: 1000px,
+  xl: 1200px,
+  xl2: 1300px,
+  xl3: 1400px,
+);
+
+@mixin mq($breakpoint: md, $rule: min, $subtraction: false) {
+  $breakpoint: map.get($mq-breakpoints, $breakpoint);
+  @if $rule == max and $subtraction {
+    $breakpoint: $breakpoint - 1;
+  }
+  @if $rule == min and $subtraction {
+    $breakpoint: $breakpoint + 1;
+  }
+  @media screen and (#{$rule}-width: $breakpoint) {
+    @content;
+  }
+}
+
+/*
+ * -----------------------------
+ * Mixin for placeholder
+ * @include placeholderColor(#00ff00);
+ * -----------------------------
+ */
+@mixin placeholderColor($color_text) {
+  &:placeholder-shown {
+    color: $color_text !important;
+  }
+  &::-webkit-input-placeholder {
+    color: $color_text !important;
+  }
+  &:-moz-placeholder {
+    color: $color_text !important;
+    opacity: 1;
+  }
+  &::-moz-placeholder {
+    color: $color_text !important;
+    opacity: 1;
+  }
+  &:-ms-input-placeholder {
+    color: $color_text !important;
+  }
+  &::-ms-input-placeholder {
+    color: $color_text !important;
+  }
+}
+
+// -----------------------------
+// エイリアス
+// .dark-on-light {
+//     @include font-smoothing(off);
+// }
+// .light-on-dark {
+//     @include font-smoothing(on);
+// }
+// -----------------------------
+@mixin font-smoothing($value: on) {
+  @if $value==on {
+    //-webkit-font-smoothing: antialiased;
+    //-moz-osx-font-smoothing: grayscale;
+  } @else {
+    //-webkit-font-smoothing: subpixel-antialiased;
+    //-moz-osx-font-smoothing: auto;
+  }
+}
+
