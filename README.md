@@ -1,5 +1,5 @@
 # react_todo
-## todoミニアプリ
+## 練習用todoミニアプリ
 ## react + TS + Redux
 
 https://createsystems.net/samples/react_todo/
